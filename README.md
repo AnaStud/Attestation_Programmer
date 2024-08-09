@@ -48,176 +48,172 @@
 
 ![image](https://github.com/user-attachments/assets/64d61136-186a-498f-8f5a-ae344211ef50)
 
--- 7. В подключенном MySQL репозитории создать базу данных “Друзья человека”
-DROP DATABASE IF EXISTS HumanFriends;
-CREATE DATABASE HumanFriends;
-USE HumanFriends;
+-- 7. В подключенном MySQL репозитории создать базу данных “Друзья человека”  
+DROP DATABASE IF EXISTS HumanFriends;  
+CREATE DATABASE HumanFriends;  
+USE HumanFriends;  
 
--- 8. Создать таблицы с иерархией из диаграммы в БД
--- животные
-CREATE TABLE animals(
-	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-	name_animal VARCHAR(100) NOT NULL
-);
--- домашние животные
-CREATE TABLE pets(
-	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-	name_pet VARCHAR(100) NOT NULL
-);
+-- 8. Создать таблицы с иерархией из диаграммы в БД  
+-- животные  
+CREATE TABLE animals(  
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,   
+	name_animal VARCHAR(100) NOT NULL  
+);  
+-- домашние животные  
+CREATE TABLE pets(  
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,   
+	name_pet VARCHAR(100) NOT NULL  
+);  
 
--- вьючные животные
-CREATE TABLE packAnimals(
-	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-	name_pack_animal VARCHAR(100) NOT NULL
-);
+-- вьючные животные  
+CREATE TABLE packAnimals(  
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,   
+	name_pack_animal VARCHAR(100) NOT NULL  
+);  
 
--- собаки
-CREATE TABLE dogs(
-	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-	name_dog VARCHAR(100) NOT NULL,
-    commands VARCHAR(500),
-    birth_date DATE
-);
+-- собаки  
+CREATE TABLE dogs(  
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,   
+	name_dog VARCHAR(100) NOT NULL,  
+    commands VARCHAR(500),  
+    birth_date DATE  
+);  
 
--- кошки
-CREATE TABLE cats(
-	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-	name_cat VARCHAR(100) NOT NULL,
-    commands VARCHAR(500),
-    birth_date DATE
-);
+-- кошки  
+CREATE TABLE cats(  
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,   
+	name_cat VARCHAR(100) NOT NULL,  
+    commands VARCHAR(500),  
+    birth_date DATE  
+);  
 
--- хомяки
-CREATE TABLE hamsters(
-	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-	name_hamster VARCHAR(100) NOT NULL,
-    commands VARCHAR(500),
-    birth_date DATE
-);
+-- хомяки  
+CREATE TABLE hamsters(  
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,   
+	name_hamster VARCHAR(100) NOT NULL,  
+    commands VARCHAR(500),  
+    birth_date DATE  
+);  
 
--- лошади
-CREATE TABLE horses(
-	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-	name_horse VARCHAR(100) NOT NULL,
-    commands VARCHAR(500),
-    birth_date DATE
-);
-
--- верблюды
-CREATE TABLE camels(
-	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-	name_camel VARCHAR(100) NOT NULL,
-    commands VARCHAR(500),
-    birth_date DATE
+-- лошади  
+CREATE TABLE horses(  
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,   
+	name_horse VARCHAR(100) NOT NULL,  
+    commands VARCHAR(500),  
+    birth_date DATE  
 );
 
--- ослы
-CREATE TABLE donkeys(
-	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-	name_donkey VARCHAR(100) NOT NULL,
-    commands VARCHAR(500),
-    birth_date DATE
+-- верблюды  
+CREATE TABLE camels(  
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,   
+	name_camel VARCHAR(100) NOT NULL,  
+    commands VARCHAR(500),  
+    birth_date DATE  
 );
 
--- 9. Заполнить низкоуровневые таблицы именами(животных), командами которые они выполняют и датами рождения
-INSERT INTO dogs (name_dog, commands, birth_date)
-VALUES 
-('Sharik', 'sit, aport', '2018-05-20'),
-('Rex', 'sit, aport', '2017-11-25'),
-('Ally', 'sit, voice, come', '2020-01-10');	
+-- ослы  
+CREATE TABLE donkeys(  
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,   
+	name_donkey VARCHAR(100) NOT NULL,  
+    commands VARCHAR(500),  
+    birth_date DATE  
+);  
 
-INSERT INTO cats (name_cat, commands, birth_date)
-VALUES 
-('Vasya', '', '2019-05-25'),
-('Murzik', '', '2022-01-20'),
-('Murka', '', '2020-01-18');
+-- 9. Заполнить низкоуровневые таблицы именами(животных), командами которые они выполняют и датами рождения  
+INSERT INTO dogs (name_dog, commands, birth_date)  
+VALUES   
+('Sharik', 'sit, aport', '2018-05-20'),  
+('Rex', 'sit, aport', '2017-11-25'),  
+('Ally', 'sit, voice, come', '2020-01-10');  
 
-INSERT INTO hamsters (name_hamster, commands, birth_date)
-VALUES 
-('Liki', '', '2019-05-25'),
-('Turi', '', '2022-01-20');	
+INSERT INTO cats (name_cat, commands, birth_date)  
+VALUES   
+('Vasya', '', '2019-05-25'),  
+('Murzik', '', '2022-01-20'),  
+('Murka', '', '2020-01-18');  
 
-INSERT INTO horses (name_horse, commands, birth_date)
-VALUES 
-('Zorro', 'go, stop', '2022-01-25'),
-('Lana', 'go, stop', '2022-08-20'),
-('Iskra', 'go, stop', '2020-02-08');
+INSERT INTO hamsters (name_hamster, commands, birth_date)  
+VALUES   
+('Liki', '', '2019-05-25'),  
+('Turi', '', '2022-01-20');  	
 
-INSERT INTO camels (name_camel, commands, birth_date)
-VALUES 
-('Basha', 'go, stop', '2019-03-15'),
-('Stone', 'go, stop', '2020-09-03');	
+INSERT INTO horses (name_horse, commands, birth_date)  
+VALUES   
+('Zorro', 'go, stop', '2022-01-25'),  
+('Lana', 'go, stop', '2022-08-20'),  
+('Iskra', 'go, stop', '2020-02-08');  
 
-INSERT INTO donkeys (name_donkey, commands, birth_date)
-VALUES 
-('Tupik', 'go, stop', '2015-05-15');	
+INSERT INTO camels (name_camel, commands, birth_date)  
+VALUES   
+('Basha', 'go, stop', '2019-03-15'),  
+('Stone', 'go, stop', '2020-09-03');  	
 
--- 10. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой питомник на зимовку. 
--- Объединить таблицы лошади, и ослы в одну таблицу.
-DROP TABLE IF EXISTS camels;
+INSERT INTO donkeys (name_donkey, commands, birth_date)  
+VALUES   
+('Tupik', 'go, stop', '2015-05-15');	  
 
-CREATE TABLE horses_donkeys AS
-SELECT * FROM horses
-UNION ALL
-SELECT * FROM donkeys;
+-- 10. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой питомник на зимовку.   
+-- Объединить таблицы лошади, и ослы в одну таблицу.  
+DROP TABLE IF EXISTS camels;  
 
--- 11.Создать новую таблицу “молодые животные” в которую попадут все животные старше 1 года, но младше 3 лет 
--- и в отдельном столбце с точностью до месяца подсчитать возраст животных в новой таблице
-CREATE TABLE young_animals AS
-SELECT 
-    'dog' AS animal_type, id, name_dog AS name, commands, birth_date,
-    TIMESTAMPDIFF(MONTH, birth_date, CURDATE()) AS age_months
-FROM dogs
-WHERE birth_date BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+CREATE TABLE horses_donkeys AS  
+SELECT * FROM horses  
+UNION ALL  
+SELECT * FROM donkeys;  
 
-UNION ALL
+-- 11.Создать новую таблицу “молодые животные” в которую попадут все животные старше 1 года, но младше 3 лет   
+-- и в отдельном столбце с точностью до месяца подсчитать возраст животных в новой таблице  
+CREATE TABLE young_animals AS  
+SELECT   
+    'dog' AS animal_type, id, name_dog AS name, commands, birth_date,  
+    TIMESTAMPDIFF(MONTH, birth_date, CURDATE()) AS age_months  
+FROM dogs  
+WHERE birth_date BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)  
 
-SELECT 
-    'cat' AS animal_type, id, name_cat AS name, commands, birth_date,
-    TIMESTAMPDIFF(MONTH, birth_date, CURDATE()) AS age_months
-FROM cats
-WHERE birth_date BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+UNION ALL  
 
-UNION ALL
+SELECT   
+    'cat' AS animal_type, id, name_cat AS name, commands, birth_date,   
+    TIMESTAMPDIFF(MONTH, birth_date, CURDATE()) AS age_months  
+FROM cats  
+WHERE birth_date BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)  
 
-SELECT 
-    'hamster' AS animal_type, id, name_hamster AS name, commands, birth_date,
-    TIMESTAMPDIFF(MONTH, birth_date, CURDATE()) AS age_months
-FROM hamsters
-WHERE birth_date BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+UNION ALL  
 
-UNION ALL
+SELECT   
+    'hamster' AS animal_type, id, name_hamster AS name, commands, birth_date,  
+    TIMESTAMPDIFF(MONTH, birth_date, CURDATE()) AS age_months  
+FROM hamsters  
+WHERE birth_date BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR)  
 
-SELECT 
-    'horse' AS animal_type, id, name_horse AS name, commands, birth_date,
-    TIMESTAMPDIFF(MONTH, birth_date, CURDATE()) AS age_months
-FROM horses_donkeys
-WHERE birth_date BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR);
+UNION ALL  
 
--- 12. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на прошлую принадлежность к старым таблицам.
-CREATE TABLE all_animals AS
-SELECT 
-    'dog' AS animal_type, id, name_dog AS name, commands, birth_date,
-    TIMESTAMPDIFF(MONTH, birth_date, CURDATE()) AS age_months
-FROM dogs
+SELECT   
+    'horse' AS animal_type, id, name_horse AS name, commands, birth_date  
+    TIMESTAMPDIFF(MONTH, birth_date, CURDATE()) AS age_months  
+FROM horses_donkeys  
+WHERE birth_date BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 YEAR) AND DATE_SUB(CURDATE(), INTERVAL 1 YEAR);  
 
-UNION ALL
+-- 12. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на прошлую принадлежность к старым таблицам.  
+CREATE TABLE all_animals AS  
+SELECT   
+    'dog' AS animal_type, id, name_dog AS name, commands, birth_date  
+FROM dogs  
 
-SELECT 
-    'cat' AS animal_type, id, name_cat AS name, commands, birth_date,
-    TIMESTAMPDIFF(MONTH, birth_date, CURDATE()) AS age_months
-FROM cats
+UNION ALL  
 
-UNION ALL
+SELECT   
+    'cat' AS animal_type, id, name_cat AS name, commands, birth_date  
+FROM cats  
 
-SELECT 
-    'hamster' AS animal_type, id, name_hamster AS name, commands, birth_date,
-    TIMESTAMPDIFF(MONTH, birth_date, CURDATE()) AS age_months
-FROM hamsters
+UNION ALL  
 
-UNION ALL
+SELECT   
+    'hamster' AS animal_type, id, name_hamster AS name, commands, birth_date  
+FROM hamsters  
 
-SELECT 
-    'horse' AS animal_type, id, name_horse AS name, commands, birth_date,
-    TIMESTAMPDIFF(MONTH, birth_date, CURDATE()) AS age_months
-FROM horses_donkeys;
+UNION ALL  
+
+SELECT   
+    'horse' AS animal_type, id, name_horse AS name, commands, birth_date  
+FROM horses_donkeys;  
